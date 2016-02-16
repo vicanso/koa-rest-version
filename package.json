@@ -1,0 +1,35 @@
+{
+  "name": "koa-rest-version",
+  "version": "0.0.1",
+  "description": "get rest version from url or http headers",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/eslint ./index.js && node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --"
+  },
+  "keywords": [
+    "rest",
+    "version",
+    "api"
+  ],
+  "author": {
+    "name": "vicanso 小墨鱼",
+    "email": "vicansocanbico@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vicanso/koa-rest-version.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vicanso/koa-rest-version/issues",
+    "email": "vicansocanbico@gmail"
+  },
+  "license": "MIT",
+  "readmeFilename": "Readme.md",
+  "devDependencies": {
+    "eslint": "^2.0.0",
+    "istanbul": "^0.4.2",
+    "koa": "^2.0.0-alpha.3",
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0"
+  }
+}
