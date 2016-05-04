@@ -1,6 +1,6 @@
 {
   "name": "koa-rest-version",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "get rest version from url or http headers",
   "main": "index.js",
   "scripts": {
@@ -11,24 +11,23 @@
     "version",
     "api"
   ],
-  "author": {
-    "name": "vicanso 小墨鱼",
-    "email": "vicansocanbico@gmail.com"
-  },
+  "author": "Tree Xie <vicansocanbico@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vicanso/koa-rest-version.git"
+    "url": "https://github.com/vicanso/koa-rest-version.git"
   },
   "bugs": {
     "url": "https://github.com/vicanso/koa-rest-version/issues",
-    "email": "vicansocanbico@gmail"
+    "email": "vicansocanbico@gmail.com"
   },
   "license": "MIT",
   "readmeFilename": "Readme.md",
   "devDependencies": {
-    "eslint": "^2.0.0",
-    "istanbul": "^0.4.2",
-    "koa": "^2.0.0-alpha.3",
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb": "^8.0.0",
+    "eslint-plugin-import": "^1.6.1",
+    "istanbul": "^0.4.3",
+    "koa": "^2.0.0",
     "mocha": "^2.4.5",
     "supertest": "^1.2.0"
   }
