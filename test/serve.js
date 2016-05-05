@@ -23,6 +23,24 @@ describe('serve', () => {
       });
   });
 
+  it('should get version from url with custom type key', done => {
+    const app = new Koa();
+    app.use(version('type'));
+    app.use(ctx => {
+      ctx.body = ctx.versionConfig;
+    });
+    request(app.listen())
+      .get('/v2/users/me?type=xml')
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        assert.equal(res.body.version, 2);
+        assert.equal(res.body.type, 'xml');
+        done();
+      });
+  });
+
   it('should get version form http accept header', done => {
     const app = new Koa();
     app.use(version());

@@ -3,7 +3,8 @@
  * [version description]
  * @return {[type]} [description]
  */
-function version() {
+function version(key) {
+  const typeKey = key || '_type';
   return (ctx, next) => {
     const cloneCxt = ctx;
     const query = ctx.query;
@@ -17,9 +18,9 @@ function version() {
       cloneCxt.path = cloneCxt.path.substring(versionDesc.length);
       versionConfig.version = v;
     }
-    if (query._type) {
-      versionConfig.type = query._type;
-      delete query._type;
+    if (query[typeKey]) {
+      versionConfig.type = query[typeKey];
+      delete query[typeKey];
       cloneCxt.query = query;
     }
     const acceptReg = /^application\/vnd\.\S+\.v(\d)+(\+(\S+))?/i;

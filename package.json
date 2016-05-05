@@ -1,7 +1,7 @@
 {
   "name": "koa-rest-version",
-  "version": "0.0.2",
-  "description": "get rest version from url or http headers",
+  "version": "0.0.3",
+  "description": "get rest version from url or http request headers",
   "main": "index.js",
   "scripts": {
     "test": "node ./node_modules/.bin/eslint ./index.js && node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --"
