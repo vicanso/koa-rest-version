@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * [version description]
  * @return {[type]} [description]
@@ -6,7 +7,6 @@
 function version(key) {
   const typeKey = key || '_type';
   return (ctx, next) => {
-    const cloneCxt = ctx;
     const query = ctx.query;
     const currentPath = ctx.path;
     const reg = /^\/v\d+/i;
@@ -15,13 +15,15 @@ function version(key) {
     if (result) {
       const versionDesc = result[0];
       const v = parseInt(versionDesc.substring(2), 10);
-      cloneCxt.path = cloneCxt.path.substring(versionDesc.length);
+      /* eslint no-param-reassign:0 */
+      ctx.path = ctx.path.substring(versionDesc.length);
       versionConfig.version = v;
     }
     if (query[typeKey]) {
       versionConfig.type = query[typeKey];
       delete query[typeKey];
-      cloneCxt.query = query;
+      /* eslint no-param-reassign:0 */
+      ctx.query = query;
     }
     const acceptReg = /^application\/vnd\.\S+\.v(\d)+(\+(\S+))?/i;
     const acceptResult = acceptReg.exec(ctx.get('Accept'));
@@ -35,7 +37,8 @@ function version(key) {
     }
     /* istanbul ignore else */
     if (versionConfig.version) {
-      cloneCxt.versionConfig = versionConfig;
+      /* eslint no-param-reassign:0 */
+      ctx.versionConfig = versionConfig;
     }
     return next();
   };

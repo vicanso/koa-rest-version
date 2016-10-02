@@ -1,6 +1,6 @@
 {
   "name": "koa-rest-version",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "get rest version from url or http request headers",
   "main": "index.js",
   "scripts": {
@@ -23,12 +23,14 @@
   "license": "MIT",
   "readmeFilename": "Readme.md",
   "devDependencies": {
-    "eslint": "^2.9.0",
-    "eslint-config-airbnb": "^8.0.0",
-    "eslint-plugin-import": "^1.6.1",
-    "istanbul": "^0.4.3",
+    "eslint": "^3.6.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "istanbul": "^0.4.5",
     "koa": "^2.0.0",
-    "mocha": "^2.4.5",
-    "supertest": "^1.2.0"
+    "mocha": "^2.5.3",
+    "supertest": "^2.0.0"
   }
 }
