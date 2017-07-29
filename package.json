@@ -1,6 +1,6 @@
 {
   "name": "koa-rest-version",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "get rest version from url or http request headers",
   "main": "index.js",
   "scripts": {
