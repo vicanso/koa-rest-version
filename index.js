@@ -4,8 +4,18 @@
  * [version description]
  * @return {[type]} [description]
  */
-function version(key) {
-  const typeKey = key || '_type';
+function version(options) {
+  let opts = options || {
+    typeKey: '_type',
+  };
+  if (typeof options === 'string') {
+    opts = {
+      typeKey: options,
+    };
+  }
+  const typeKey = opts.typeKey;
+  const override = opts.override;
+
   return (ctx, next) => {
     const query = ctx.query;
     const currentPath = ctx.path;
@@ -17,6 +27,9 @@ function version(key) {
       const v = parseInt(versionDesc.substring(2), 10);
       /* eslint no-param-reassign:0 */
       ctx.path = ctx.path.substring(versionDesc.length);
+      if (override) {
+        ctx.originalPath = ctx.path;
+      }
       versionConfig.version = v;
     }
     if (query[typeKey]) {

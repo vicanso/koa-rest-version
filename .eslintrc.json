@@ -2,5 +2,9 @@
   "extends": "airbnb/base",
   "rules": {
     "strict": 0
+  },
+  "globals": {
+    "it": true,
+    "describe": true
   }
 }

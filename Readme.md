@@ -13,7 +13,25 @@ parse rest api version config, support two format:
 
 ## API
 
-- `typeKey` the type query key, default: `_type`
+- `options.typeKey` the type query key, default: `_type`
+- `options.override` override the original path
+
+```js
+const Koa = require('koa');
+const version = require('version');
+const app = new Koa();
+app.use(version({
+  typeKey: 'type',
+  override: true,
+}));
+app.use(ctx => {
+  // url: /user/me
+  // {"version": 2, "type": "xml"}
+  console.info(ctx.versionConfig);
+});
+app.listen();
+// GET /v2/user/me?type=xml
+```
 
 ```js
 const Koa = require('koa');
@@ -42,6 +60,7 @@ app.use(ctx => {
 app.listen();
 // GET /v2/user/me?content-type=xml
 ```
+
 
 ## License
 
