@@ -27,7 +27,7 @@ app.use(version({
 app.use(ctx => {
   // url: /user/me
   // {"version": 2, "type": "xml"}
-  console.info(ctx.versionConfig);
+  console.info(ctx.acceptConfig);
 });
 app.listen();
 // GET /v2/user/me?type=xml
@@ -41,7 +41,7 @@ app.use(version());
 app.use(ctx => {
   // url: /user/me
   // {"version": 2, "type": "xml"}
-  console.info(ctx.versionConfig);
+  console.info(ctx.acceptConfig);
 });
 app.listen();
 // GET /v2/user/me?_type=xml
@@ -55,7 +55,7 @@ app.use(version('content-type'));
 app.use(ctx => {
   // url: /user/me
   // {"version": 2, "type": "xml"}
-  console.info(ctx.versionConfig);
+  console.info(ctx.acceptConfig);
 });
 app.listen();
 // GET /v2/user/me?content-type=xml
