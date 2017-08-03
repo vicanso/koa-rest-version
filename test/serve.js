@@ -10,7 +10,7 @@ describe('serve', () => {
     const app = new Koa();
     app.use(version());
     app.use(ctx => {
-      ctx.body = ctx.versionConfig;
+      ctx.body = ctx.acceptConfig;
     });
     request(app.listen())
       .get('/v2/users/me?_type=xml')
@@ -30,7 +30,7 @@ describe('serve', () => {
     app.use(version('type'));
     app.use((ctx) => {
       /* eslint no-param-reassign:0 */
-      ctx.body = ctx.versionConfig;
+      ctx.body = ctx.acceptConfig;
     });
     request(app.listen())
       .get('/v2/users/me?type=xml')
@@ -50,7 +50,7 @@ describe('serve', () => {
     app.use(version());
     app.use((ctx) => {
       /* eslint no-param-reassign:0 */
-      ctx.body = ctx.versionConfig;
+      ctx.body = ctx.acceptConfig;
     });
     request(app.listen())
       .get('/users/me')
@@ -73,10 +73,10 @@ describe('serve', () => {
       typeKey: 'type',
     }));
     app.use((ctx) => {
-      const versionConfig = ctx.versionConfig;
+      const acceptConfig = ctx.acceptConfig;
       ctx.body = {
-        version: versionConfig.version,
-        type: versionConfig.type,
+        version: acceptConfig.version,
+        type: acceptConfig.type,
         path: ctx.originalPath,
       };
     });

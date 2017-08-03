@@ -21,7 +21,7 @@ function version(options) {
     const currentPath = ctx.path;
     const reg = /^\/v\d+/i;
     const result = reg.exec(currentPath);
-    const versionConfig = {};
+    const acceptConfig = {};
     if (result) {
       const versionDesc = result[0];
       const v = parseInt(versionDesc.substring(2), 10);
@@ -30,10 +30,10 @@ function version(options) {
       if (override) {
         ctx.originalPath = ctx.path;
       }
-      versionConfig.version = v;
+      acceptConfig.version = v;
     }
     if (query[typeKey]) {
-      versionConfig.type = query[typeKey];
+      acceptConfig.type = query[typeKey];
       delete query[typeKey];
       /* eslint no-param-reassign:0 */
       ctx.query = query;
@@ -42,16 +42,17 @@ function version(options) {
     const acceptResult = acceptReg.exec(ctx.get('Accept'));
     /* istanbul ignore else */
     if (acceptResult) {
-      versionConfig.version = parseInt(acceptResult[1], 10);
+      acceptConfig.version = parseInt(acceptResult[1], 10);
       /* istanbul ignore else */
       if (acceptResult[3]) {
-        versionConfig.type = acceptResult[3];
+        acceptConfig.type = acceptResult[3];
       }
     }
     /* istanbul ignore else */
-    if (versionConfig.version) {
+    if (acceptConfig.version) {
       /* eslint no-param-reassign:0 */
-      ctx.versionConfig = versionConfig;
+      ctx.acceptConfig = acceptConfig;
+      ctx.versionConfig = acceptConfig;
     }
     return next();
   };
