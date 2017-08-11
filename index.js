@@ -51,7 +51,7 @@ function version(options) {
     /* istanbul ignore else */
     if (acceptConfig.version) {
       /* eslint no-param-reassign:0 */
-      ctx.acceptConfig = acceptConfig;
+      ctx.state.acceptConfig = acceptConfig;
       ctx.versionConfig = acceptConfig;
     }
     return next();
